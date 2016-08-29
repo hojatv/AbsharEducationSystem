@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">AbsharEducationSystem</string>
-    <string name="change_image">ChangeImage</string>
+    <string name="change_image">Change to Resource</string>
+    <string name="chane_to_asset">Chane to Asset</string>
+    <string name="settings">Settings</string>
+    <string name="detail_activity">Detail Activity</string>
+    <string name="register">Register</string>
 </resources>
