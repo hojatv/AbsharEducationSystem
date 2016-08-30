@@ -1,18 +1,24 @@
 package ir.abshareducaion.abshareducationsystem;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             Course course = iterator.next();
             builder.append(course.getTitle()).append("\n");
         }
-        ArrayAdapter<Course> courseArrayAdapter = new ArrayAdapter<Course>(this,android.R.layout.simple_expandable_list_item_1, data);
+        ArrayAdapter<Course> courseArrayAdapter = new CourseArrayAdapter(this,0, data);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(courseArrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
@@ -69,6 +75,28 @@ public class MainActivity extends AppCompatActivity {
                 String msg = data.getStringExtra("resultMessage");
                 Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
             }
+        }
+    }
+    class CourseArrayAdapter extends ArrayAdapter<Course> {
+        Context context;
+        List<Course> objects;
+        public CourseArrayAdapter(Context context, int resource, List<Course> objects) {
+            super(context, resource, objects);
+            this.context = context;
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            Course course = objects.get(position);
+            LayoutInflater inflater  = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.course_item,null);
+            TextView textView = (TextView) view.findViewById(R.id.tvTitle);
+            textView.setText(course.getTitle());
+            ImageView imageView = (ImageView) view.findViewById(R.id.imageCourse);
+            int res = context.getResources().getIdentifier("books","drawable",context.getPackageName());
+            imageView.setImageResource(res);
+            return view;
         }
     }
 }
