@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 1001;
     public static final String COURSE_TITLE = "courseTitle";;
     public static final String COURSE_DESC = "courseDesc";;
-    private static final int DETAIL_REQUEST_CODE = 100;
     protected List<Course> data;
 
     @Override
@@ -52,16 +51,16 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(COURSE_TITLE,course.getTitle());
         intent.putExtra(COURSE_DESC,course.getDescription());
-        startActivityForResult(intent,DETAIL_REQUEST_CODE);
+        startActivityForResult(intent,REQUEST_CODE);
     }
 
-    /*public void btnClickHandler(View view) {
+   /* public void btnClickHandler(View view) {
         Intent detailIntent = new Intent(this, DetailActivity.class);
         Course course = new Course();
 
         detailIntent.putExtra(COURSE_TITLE, "CourseTitle");
         startActivityForResult(detailIntent, REQUEST_CODE);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -71,5 +70,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
             }
         }
-    }*/
+    }
 }
