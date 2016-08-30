@@ -34,4 +34,9 @@ public class Course {
     public double getCredits() {
         return credits;
     }
+
+    @Override
+    public String toString() {
+        return title ;
+    }
 }

@@ -24,11 +24,15 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         courseTitle = getIntent().getStringExtra(MainActivity.COURSE_TITLE);
-        TextView textView = (TextView) findViewById(R.id.appTitle);
+        TextView textView = (TextView) findViewById(R.id.tvTitle);
         textView.setText(courseTitle);
+
+        String courseDescription = getIntent().getStringExtra(MainActivity.COURSE_DESC);
+        TextView descTextView = (TextView) findViewById(R.id.tvDescription);
+        descTextView.setText(courseDescription);
     }
 
-    public void resourceBtnOnClickHandler(View view) {
+   /* public void resourceBtnOnClickHandler(View view) {
         String imageName = "books";
         int res = getResources().getIdentifier(imageName,"drawable", getPackageName());
         ImageView iv = (ImageView) findViewById(R.id.imageCourse);
@@ -46,12 +50,12 @@ public class DetailActivity extends AppCompatActivity {
         } catch (IOException e) {
             Log.e( LOG_CAT , e.getMessage());
         }
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main,menu);
-        return super.onCreateOptionsMenu(menu);
+        return super.onCreateOptionsMenu(menu)  ;
     }
 
     @Override
