@@ -14,16 +14,9 @@ public class DataProvider {
     }
 
     static {
-        data.add(new Course(1001, "DataStructure1", "This course should be taken in term3", 3));
-        data.add(new Course(1002, "Algorithm", "It is optional for hardware engineering students, " +
-                "It is optional for hardware engineering students , It is optional for hardware engineering students" +
-                "It is optional for hardware engineering students " +
-                "It is optional for hardware engineering students " +
-                "It is optional for hardware engineering students " +
-                "It is optional for hardware engineering students , It is optional for hardware engineering students" +
-                "It is optional for hardware engineering students , It is optional for hardware engineering students" +
-                "It is optional for hardware engineering students , It is optional for hardware engineering students", 3));
-        data.add(new Course(1003, "Artificial Intelligence", "This course is iaken after algorithm", 3));
-        data.add(new Course(1004, "Graphics", "Optional", 3));
+        data.add(new Course(1001, "ثبت نام", "فرایند تبت نام. در حال ارتباط با سرور", 3));
+        data.add(new Course(1002, "برنامه درسی", "در حال دریافت اطلاعات ...  " , 3));
+        data.add(new Course(1003, "ارتباط با مدرسین", "در حال دریافت اطلاعات ...", 3));
+        data.add(new Course(1004, "کارنامه تحصیلی", "در حال دریافت اطلاعات", 3));
     }
 }

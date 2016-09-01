@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE = 1001;
     public static final String COURSE_TITLE = "courseTitle";;
     public static final String COURSE_DESC = "courseDesc";;
+    public static final String COURSE_NUMBER = "courseNumber";;
+    public static final String COURSE_CREDITS = "courseCredits ";
+
     protected List<Course> data;
 
     @Override
@@ -57,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra(COURSE_TITLE,course.getTitle());
         intent.putExtra(COURSE_DESC,course.getDescription());
+        intent.putExtra(COURSE_NUMBER,course.getCourseNumber());
+        intent.putExtra(COURSE_CREDITS,course.getCredits());
         startActivityForResult(intent,REQUEST_CODE);
     }
 
@@ -94,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             TextView textView = (TextView) view.findViewById(R.id.tvTitle);
             textView.setText(course.getTitle());
             ImageView imageView = (ImageView) view.findViewById(R.id.imageCourse);
-            int res = context.getResources().getIdentifier("books","drawable",context.getPackageName());
+            int res = context.getResources().getIdentifier("image_"+course.getCourseNumber(),"drawable",context.getPackageName());
             imageView.setImageResource(res);
             return view;
         }

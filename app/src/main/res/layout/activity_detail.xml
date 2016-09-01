@@ -42,7 +42,7 @@
 
     <ImageView
         android:id="@+id/imageIcon1"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -53,20 +53,60 @@
         android:id="@+id/imageCourse"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
         android:src="@drawable/app_logo" />
 
-    <Button
-        android:id="@+id/registerBtn"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:onClick="registerBtnClickHandler"
-        android:text="@string/register" />
+        android:gravity="end"
+        android:orientation="vertical">
+
+       <!-- <TextView
+            android:id="@+id/tvCourseNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="TestCourseNumber"
+            />-->
+        <TextView
+            android:id="@+id/tvCourseNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginStart="20sp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="CourseNumber"
+            />
+        <TextView
+            android:id="@+id/tvCredits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginStart="20sp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:text="Credits"
+            />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:onClick="registerBtnClickHandler"
+            android:text="@string/register" />
+    </LinearLayout>
 
 
 </RelativeLayout>

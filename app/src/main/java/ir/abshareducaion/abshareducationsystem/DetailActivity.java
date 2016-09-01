@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.NumberFormat;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -30,6 +31,23 @@ public class DetailActivity extends AppCompatActivity {
         String courseDescription = getIntent().getStringExtra(MainActivity.COURSE_DESC);
         TextView descTextView = (TextView) findViewById(R.id.tvDescription);
         descTextView.setText(courseDescription);
+
+        int courseNumber = getIntent().getIntExtra(MainActivity.COURSE_NUMBER,0);
+        TextView courseNumberView = (TextView) findViewById(R.id.tvCourseNumber);
+        //courseNumberView.setText("courseNumber #: " + courseNumber);
+        courseNumberView.setText("لطفا شکیبا باشید");
+
+        double courseCredits = getIntent().getDoubleExtra(MainActivity.COURSE_CREDITS,0);
+        TextView courseCreditsView = (TextView) findViewById(R.id.tvCredits);
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMinimumFractionDigits(1);
+        //courseCreditsView.setText("Credits: " + numberFormat.format(courseCredits));
+        courseCreditsView.setText("");
+
+
+        ImageView iv = (ImageView)findViewById(R.id.imageCourse);
+        int res = getResources().getIdentifier("image_"+courseNumber,"drawable",getPackageName());
+        iv.setImageResource(res);
     }
 
    /* public void resourceBtnOnClickHandler(View view) {
