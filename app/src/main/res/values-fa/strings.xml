@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">آبشار سعادت</string>
+    <string name="change_image">تغییر به منبع</string>
+    <string name="chane_to_asset">تغییر به فایل</string>
+    <string name="settings">تنظیمات</string>
+    <string name="detail_activity">مشاهده جزئیات</string>
+    <string name="register">بازگشت</string>
+    <string name="error_message">خطا در برقرار ارتباط با سرور</string>
+    <string name="waiting_message">لطفا شکیبا باشید</string>
+</resources>
