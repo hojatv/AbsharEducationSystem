@@ -1,4 +1,4 @@
-package ir.abshareducaion.abshareducationsystem;
+package ir.abshareducaion.abshareducationsystem.domain;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
 package ir.abshareducaion.abshareducationsystem;
 
-import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,9 +10,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.client.CommonsClientHttpRequestFactory;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+
 import java.text.NumberFormat;
+import java.util.Arrays;
+
+import ir.abshareducaion.abshareducationsystem.domain.Deployment;
+import ir.abshareducaion.abshareducationsystem.domain.Greeting;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -91,6 +99,43 @@ public class DetailActivity extends AppCompatActivity {
     public void registerBtnClickHandler(View view) {
         getIntent().putExtra("resultMessage" ,"You're registered for" + courseTitle);
         setResult(RESULT_OK,getIntent());
-        finish();
+        new HttpRequestTask().execute();
+
+    }
+    private class HttpRequestTask extends AsyncTask<Void, Void, Deployment> {
+        @Override
+        protected Deployment doInBackground(Void... params) {
+            try {
+                /*final String url = "http://rest-service.guides.spring.io/greeting";*/
+                final String url = "http://10.0.2.2:8080/activiti-rest/service/repository/deployments/10019";
+
+                RestTemplate restTemplate = new RestTemplate();
+                HttpHeaders headers = new HttpHeaders();
+                headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                Deployment deployment = restTemplate.getForObject(url, Deployment.class);
+                Log.e("onPostExecute" , deployment.getName());
+                return deployment;
+            } catch (Exception e) {
+                Log.e("MainActivity", e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Deployment deployment) {
+
+            /*TextView greetingIdText = (TextView) findViewById(R.id.id_value);
+            TextView greetingContentText = (TextView) findViewById(R.id.content_value);
+            greetingIdText.setText(greeting.getId());
+            greetingContentText.setText(greeting.getContent());*/
+            getIntent().putExtra("resultMessage" ,"processName" + deployment.getName());
+            setResult(RESULT_OK,getIntent());
+           // new HttpRequestTask().execute();
+            finish();
+        }
+
     }
 }
