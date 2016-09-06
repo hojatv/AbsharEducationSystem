@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">آبشار سعادت</string>
+    <string name="app_name">ABSHAR</string>
     <string name="change_image">Change to Resource</string>
     <string name="chane_to_asset">Chane to Asset</string>
     <string name="settings">Settings</string>
     <string name="detail_activity">Detail Activity</string>
-    <string name="register">بازپشت</string>
-    <string name="error_message">خطا در برقرار ارتباط با سرور</string>
-    <string name="waiting_message">لطفا شکیبا باشید</string>
+    <string name="register">Return</string>
+    <string name="error_message">Server is not accessible</string>
+    <string name="waiting_message">Please wait</string>
 </resources>
