@@ -114,7 +114,7 @@ public class DetailActivity extends AppCompatActivity {
         @Override
         protected Deployment doInBackground(Void... params) {
             try {
-                final String url = "http://10.0.2.2:8080/activiti-rest/service/repository/deployments/10019";
+                final String url = "http://10.0.2.2:8080/activiti-rest/service/repository/deployments/23";
 
                 HttpAuthentication authHeader = new HttpBasicAuthentication("kermit", "kermit");
                 HttpHeaders requestHeaders = new HttpHeaders();

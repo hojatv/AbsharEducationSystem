@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String userName = getIntent().getStringExtra(LoginActivity.USER_NAME);
+        String password = getIntent().getStringExtra(LoginActivity.PASSWORD);
+
+        Log.d("userName: " , userName);
+        Log.d("passWord: " , password);
+
         data = DataProvider.getData();
         Iterator<Course> iterator = data.iterator();
         StringBuilder builder = new StringBuilder();
