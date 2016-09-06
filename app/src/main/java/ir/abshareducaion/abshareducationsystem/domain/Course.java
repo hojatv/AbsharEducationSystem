@@ -1,4 +1,4 @@
-package ir.abshareducaion.abshareducationsystem;
+package ir.abshareducaion.abshareducationsystem.domain;
 
 /**
  * Created by Dell on 8/28/2016.
