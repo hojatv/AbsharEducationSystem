@@ -132,7 +132,7 @@ public class DetailActivity extends AppCompatActivity {
                 try {
                     // Make the HTTP GET request to the Basic Auth protected URL
                     ResponseEntity<Deployment> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, Deployment.class);
-                    Log.e("",response.getBody().toString());
+                    Log.e("", response.getBody().toString());
                     getIntent().putExtra("resultMessage", "Deployment: " + response.getBody().toString());
                     return response.getBody();
                 } catch (HttpClientErrorException e) {
@@ -154,7 +154,8 @@ public class DetailActivity extends AppCompatActivity {
             TextView greetingContentText = (TextView) findViewById(R.id.content_value);
             greetingIdText.setText(greeting.getId());
             greetingContentText.setText(greeting.getContent());*/
-            getIntent().putExtra("resultMessage", "Greeting : " + deployment.toString());
+            if (deployment != null)
+                getIntent().putExtra("resultMessage", "Greeting : " + deployment.toString());
             setResult(RESULT_OK, getIntent());
             // new HttpRequestTask().execute();
             finish();

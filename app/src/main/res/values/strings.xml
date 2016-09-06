@@ -7,4 +7,5 @@
     <string name="register">Return</string>
     <string name="error_message">Server is not accessible</string>
     <string name="waiting_message">Please wait</string>
+    <string name="login">Login</string>
 </resources>
